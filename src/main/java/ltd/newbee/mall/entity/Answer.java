@@ -10,7 +10,7 @@ package ltd.newbee.mall.entity;
 
 import java.util.List;
 
-public class Answer {
+public class Answer<Answer> {
 	private long questionId;
 	private String content;
 	private long answerId;
@@ -40,6 +40,8 @@ public class Answer {
 	public void setAnswerId(long answerId) {
 		this.answerId = answerId;
 	}
+
+
 	
 }
 

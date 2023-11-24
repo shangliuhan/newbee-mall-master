@@ -55,7 +55,7 @@ public interface NewBeeMallGoodsMapper {
 
     int batchUpdateSellStatus(@Param("orderIds")Long[] orderIds,@Param("sellStatus") int sellStatus);
 
-  //输出单个数组，long变成string，sql文变化
-  Answer getAnswerById(String answerId); 
+  //json输出数组
+  List<Answer> getAnswerById(List<String> answerId);
     
 }

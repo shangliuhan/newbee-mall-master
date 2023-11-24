@@ -389,11 +389,18 @@
     where goods_id = #{goodsId,jdbcType=BIGINT}
   </update>
   
-  <select id="getAnswerById" parameterType="String" resultType="ltd.newbee.mall.entity.Answer">
+  <select id="getAnswerById" parameterType="long" resultType="ltd.newbee.mall.entity.Answer">
+	   
         SELECT answer_id, question_id, content FROM answers 
     	JOIN questions ON answers.answer_id = questions.id
-    	WHERE answer_id = #{answerId,jdbcType=BIGINT}
-    </select>
+    	WHERE answer_id IN
+    <foreach item="answerId" collection="answerId" open="(" separator="," close=")">
+        #{answerId,jdbcType=BIGINT}
+        
+    </foreach>
+
+  </select>
+
  	    
 </mapper>
 
