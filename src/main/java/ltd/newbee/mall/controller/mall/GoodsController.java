@@ -102,10 +102,10 @@ public class GoodsController {
         return "mall/detail";
     }
     
-    //源代码
+    //输出单个数组，answerId格式改变从long变成string
   @RequestMapping(value = "/answers", method = RequestMethod.GET)
   @ResponseBody
-  public Result answers(@RequestParam long answerId) {
+  public Result answers(@RequestParam String answerId) {
   	return ResultGenerator.genSuccessResult(newBeeMallGoodsService.getAnswerById(answerId)); 
 
   }

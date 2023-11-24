@@ -389,8 +389,10 @@
     where goods_id = #{goodsId,jdbcType=BIGINT}
   </update>
   
-  <select id="getAnswerById" parameterType="long" resultType="ltd.newbee.mall.entity.Answer">
-        SELECT answer_id FROM answers where answer_id = #{answerId,jdbcType=BIGINT};
+  <select id="getAnswerById" parameterType="String" resultType="ltd.newbee.mall.entity.Answer">
+        SELECT answer_id, question_id, content FROM answers 
+    	JOIN questions ON answers.answer_id = questions.id
+    	WHERE answer_id = #{answerId,jdbcType=BIGINT}
     </select>
  	    
 </mapper>

@@ -72,7 +72,8 @@ public interface NewBeeMallGoodsService {
      */
     PageResult searchNewBeeMallGoods(PageQueryUtil pageUtil);
 
-    //源代码
-  Answer getAnswerById(long answerId);
+//    输出单个数组，long变成string
+  Answer getAnswerById(String answerId);
+  
     
 }

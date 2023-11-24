@@ -55,7 +55,7 @@ public interface NewBeeMallGoodsMapper {
 
     int batchUpdateSellStatus(@Param("orderIds")Long[] orderIds,@Param("sellStatus") int sellStatus);
 
-    //源代码
-  Answer getAnswerById(long answerId);
+  //输出单个数组，long变成string，sql文变化
+  Answer getAnswerById(String answerId); 
     
 }

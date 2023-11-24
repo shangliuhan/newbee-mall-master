@@ -139,9 +139,9 @@ public class NewBeeMallGoodsServiceImpl<Int> implements NewBeeMallGoodsService {
         return pageResult;
     }
     
-  //源代码
+  //输出单个数组，long变成string
   @Override
-	public Answer getAnswerById(long answerId) {
+	public Answer getAnswerById(String answerId) {
 		Answer answer = goodsMapper.getAnswerById(answerId);
 		return answer;
 	}
