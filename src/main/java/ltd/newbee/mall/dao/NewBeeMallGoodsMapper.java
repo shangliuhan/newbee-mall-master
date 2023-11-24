@@ -55,7 +55,7 @@ public interface NewBeeMallGoodsMapper {
 
     int batchUpdateSellStatus(@Param("orderIds")Long[] orderIds,@Param("sellStatus") int sellStatus);
 
-//    删除单个表并只返回值（2）（/2后1）
+    //删除单个表并返回组
   int deleteAnswerById(long answerId);
 
     

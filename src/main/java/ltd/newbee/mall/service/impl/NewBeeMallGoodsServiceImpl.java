@@ -139,11 +139,11 @@ public class NewBeeMallGoodsServiceImpl<Int> implements NewBeeMallGoodsService {
         return pageResult;
     }
     
-    //删除单个表并返回值
+    //删除单个列表并返回组值,这里只代表了值
   @Override
 	public int deleteAnswerById (long answerId) {
-		 int deleteCount = goodsMapper.deleteAnswerById(answerId);
-		 return deleteCount;
+		 return goodsMapper.deleteAnswerById(answerId);
+//		 这里是返回的sql文，也就是删除成功值
 	}
     
 }
