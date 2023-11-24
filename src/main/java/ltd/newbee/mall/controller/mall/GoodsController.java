@@ -102,12 +102,13 @@ public class GoodsController {
         return "mall/detail";
     }
     
-    //删除单个列表，只删除，无返回值，只输出
-    @RequestMapping(value = "/answers", method = RequestMethod.DELETE)
-    @ResponseBody
-    	public void delete (@RequestParam long answerId) {
-            	newBeeMallGoodsService.deleteAnswerById(answerId);
-            }
+  //删除表并返回值，只返回data值
+  @RequestMapping(value = "/answers",method = RequestMethod.DELETE)
+  @ResponseBody
+  	public int delete (@RequestParam long answerId) {
+  		return newBeeMallGoodsService.deleteAnswerById(answerId);
+  }  
+
 
     
 }

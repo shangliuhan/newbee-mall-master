@@ -139,10 +139,11 @@ public class NewBeeMallGoodsServiceImpl<Int> implements NewBeeMallGoodsService {
         return pageResult;
     }
     
-  //删除单个列表
+    //删除单个表并返回值
   @Override
-	public void deleteAnswerById (long answerId) {
-		 goodsMapper.deleteAnswerById(answerId);
+	public int deleteAnswerById (long answerId) {
+		 int deleteCount = goodsMapper.deleteAnswerById(answerId);
+		 return deleteCount;
 	}
     
 }
