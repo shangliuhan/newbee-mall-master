@@ -102,6 +102,13 @@ public class GoodsController {
         return "mall/detail";
     }
     
+    //源代码
+  @RequestMapping(value = "/answers", method = RequestMethod.GET)
+  @ResponseBody
+  public Result answers(@RequestParam long answerId) {
+  	return ResultGenerator.genSuccessResult(newBeeMallGoodsService.getAnswerById(answerId)); 
+
+  }
     
 }
 

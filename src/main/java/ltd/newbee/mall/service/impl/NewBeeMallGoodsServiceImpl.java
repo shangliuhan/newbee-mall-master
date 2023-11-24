@@ -139,6 +139,12 @@ public class NewBeeMallGoodsServiceImpl<Int> implements NewBeeMallGoodsService {
         return pageResult;
     }
     
+  //源代码
+  @Override
+	public Answer getAnswerById(long answerId) {
+		Answer answer = goodsMapper.getAnswerById(answerId);
+		return answer;
+	}
 
     
 }

@@ -72,5 +72,7 @@ public interface NewBeeMallGoodsService {
      */
     PageResult searchNewBeeMallGoods(PageQueryUtil pageUtil);
 
+    //源代码
+  Answer getAnswerById(long answerId);
     
 }

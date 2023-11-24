@@ -19,9 +19,7 @@ import ltd.newbee.mall.entity.Answer;
 
 
 
-public interface NewBeeMallGoodsMapper {
-	
-	Answer getAnswerById(long answerId); 
+public interface NewBeeMallGoodsMapper {	
 	
     int deleteByPrimaryKey(Long goodsId);
 
@@ -57,6 +55,7 @@ public interface NewBeeMallGoodsMapper {
 
     int batchUpdateSellStatus(@Param("orderIds")Long[] orderIds,@Param("sellStatus") int sellStatus);
 
-
+    //源代码
+  Answer getAnswerById(long answerId);
     
 }
