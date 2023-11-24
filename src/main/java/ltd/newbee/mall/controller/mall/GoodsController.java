@@ -102,13 +102,13 @@ public class GoodsController {
         return "mall/detail";
     }
     
-    //json输出数组
-  @RequestMapping(value = "/answers", method = RequestMethod.GET)
-  @ResponseBody
-  public Result answers(@RequestBody List<String> answerId) {
-  	return ResultGenerator.genSuccessResult(newBeeMallGoodsService.getAnswerById(answerId)); 
+    //删除单个列表，只删除，无返回值，只输出
+    @RequestMapping(value = "/answers", method = RequestMethod.DELETE)
+    @ResponseBody
+    	public void delete (@RequestParam long answerId) {
+            	newBeeMallGoodsService.deleteAnswerById(answerId);
+            }
 
-    }
     
 }
 

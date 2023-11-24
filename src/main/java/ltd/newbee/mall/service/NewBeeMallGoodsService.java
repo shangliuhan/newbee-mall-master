@@ -72,8 +72,9 @@ public interface NewBeeMallGoodsService {
      */
     PageResult searchNewBeeMallGoods(PageQueryUtil pageUtil);
 
-	//json输出数组
-  List<Answer> getAnswerById(List<String> answerId);
+  //删除单个列表
+  	void deleteAnswerById(long answerId);
+
 
   
     

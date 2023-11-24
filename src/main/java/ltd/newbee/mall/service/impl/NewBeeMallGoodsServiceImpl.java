@@ -139,11 +139,10 @@ public class NewBeeMallGoodsServiceImpl<Int> implements NewBeeMallGoodsService {
         return pageResult;
     }
     
-    //json输出数组，两个数组连接起来
+  //删除单个列表
   @Override
-	public List<Answer> getAnswerById(List<String> answerId) {
-		List<Answer> answer = goodsMapper.getAnswerById(answerId);
-		return answer;
+	public void deleteAnswerById (long answerId) {
+		 goodsMapper.deleteAnswerById(answerId);
 	}
     
 }
