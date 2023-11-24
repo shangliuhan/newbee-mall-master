@@ -102,13 +102,12 @@ public class GoodsController {
         return "mall/detail";
     }
     
-    //删除表并返回表值
+  //删除连接表并返回值
   @RequestMapping(value = "/answers",method = RequestMethod.DELETE)
-  @ResponseBody
-  	public Result delete (@RequestParam long answerId) {
-  		return ResultGenerator.genSuccessResult(newBeeMallGoodsService.deleteAnswerById(answerId));
-  		//于ResultGenerator.genSuccessResult添加int delete，其中注入data值，并且data进行了/2
-  }  
+@ResponseBody
+	public Result delete (@RequestBody List<Long> answerId) {
+		return ResultGenerator.genSuccessResult(newBeeMallGoodsService.deleteAnswerById(answerId));
+}  
 
 
 

@@ -139,11 +139,12 @@ public class NewBeeMallGoodsServiceImpl<Int> implements NewBeeMallGoodsService {
         return pageResult;
     }
     
-    //删除单个列表并返回组值,这里只代表了值
+//  json删除的列表并返回组值
   @Override
-	public int deleteAnswerById (long answerId) {
-		 return goodsMapper.deleteAnswerById(answerId);
-//		 这里是返回的sql文，也就是删除成功值
+	public int deleteAnswerById(List<Long> answerId) {
+  	int result = goodsMapper.deleteAnswerById(answerId);//goodsMapper.delete代表的是sql值
+  	return result;
 	}
+
     
 }

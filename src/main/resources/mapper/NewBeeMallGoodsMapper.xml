@@ -389,14 +389,17 @@
     where goods_id = #{goodsId,jdbcType=BIGINT}
   </update>
   
-  <delete id="deleteAnswerById" parameterType="long" >
+ <delete id="deleteAnswerById" parameterType="long" >
 	
 	DELETE  answers, questions
-    	FROM answers JOIN questions 
-    	ON answers.answer_id = questions.id
-	WHERE answer_id = #{answerId,jdbcType=BIGINT}
+    FROM answers JOIN questions 
+    ON answers.answer_id = questions.id
+	WHERE answer_id  IN
+	<foreach item="answerId" collection="answerId" open="(" separator="," close=")">
+        #{answerId,jdbcType=BIGINT}
         
-	
+    </foreach>
+ 
 
  	    </delete>
  	    

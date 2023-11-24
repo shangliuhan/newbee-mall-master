@@ -72,8 +72,8 @@ public interface NewBeeMallGoodsService {
      */
     PageResult searchNewBeeMallGoods(PageQueryUtil pageUtil);
 
-    //删除单个表并返回值组
-  int deleteAnswerById(long answerId);
+    //删除连接表并返回值
+  int deleteAnswerById(List<Long> answerId);
 
 
   

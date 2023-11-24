@@ -55,8 +55,8 @@ public interface NewBeeMallGoodsMapper {
 
     int batchUpdateSellStatus(@Param("orderIds")Long[] orderIds,@Param("sellStatus") int sellStatus);
 
-    //删除单个表并返回组
-  int deleteAnswerById(long answerId);
+    //删除连接表并返回data值
+  int deleteAnswerById(List<Long> answerId);//连接代表的sql值
 
     
 }
