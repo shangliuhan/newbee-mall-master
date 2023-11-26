@@ -60,11 +60,19 @@ public interface NewBeeMallGoodsMapper<NewBeeMallAnswer> {
     //mapper调取并使用
 
     //删除连接表并返回data值
+<<<<<<< HEAD
 //    Answer updateAnswerById(Map<String, Object> answerCon);//连接代表的sql值
     
     //limit
     List<NewBeeMallOrder> findNewBeeMallAnswerList(PageQueryUtil AnswerpageUtil);//调取
     int getTotalNewBeeMallAnswers(PageQueryUtil AnswerpageUtil);//使用
+=======
+    long updateAnswerById(Map<String, Object> answerCon);//连接代表的sql值
+    
+//    List<NewBeeMallAnswer> findNewBeeMallAnswerList(PageQueryUtil AnswerpageUtil);
+//
+//    int getTotalNewBeeMallAnswer(PageQueryUtil AnswerpageUtil);
+>>>>>>> e42509cef6e2aaafa767dade3f0b7c6819997d56
 
     
 }

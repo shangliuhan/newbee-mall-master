@@ -389,6 +389,7 @@
     where goods_id = #{goodsId,jdbcType=BIGINT}
   </update>
   
+<<<<<<< HEAD
   
   
   <select id="findNewBeeMallAnswerList" parameterType="ltd.newbee.mall.util.PageQueryUtil" resultType="ltd.newbee.mall.entity.Answer">
@@ -406,6 +407,21 @@
     SELECT COUNT(*) answers
     </select>
 
+=======
+ <update id="updateAnswerById" parameterType="ltd.newbee.mall.entity.Answer" > 
+	   
+	UPDATE answers
+    JOIN questions ON answers.answer_id = questions.id	
+    
+    SET answers.content = #{content, jdbcType=VARCHAR},
+    	questions.question_id = #{questionId,jdbcType=BIGINT}
+    	
+	WHERE answer_id = #{answerId,jdbcType=BIGINT}
+        
+ 
+
+ 	    </update>
+>>>>>>> e42509cef6e2aaafa767dade3f0b7c6819997d56
  	    
 </mapper>
 

@@ -74,6 +74,7 @@ public interface NewBeeMallGoodsService {
      */
     PageResult searchNewBeeMallGoods(PageQueryUtil pageUtil);
 
+<<<<<<< HEAD
     
     
     //update
@@ -81,6 +82,13 @@ public interface NewBeeMallGoodsService {
 //   Answer updateAnswerById(Map<String, Object> answerCon);
 
 //limit
+=======
+    //update
+
+//   long updateAnswerById(Map<String, Object> answerCon);
+
+
+>>>>>>> e42509cef6e2aaafa767dade3f0b7c6819997d56
    PageResult getNewBeeMallAnswerPage(PageQueryUtil AnswerpageUtil);
 
 
