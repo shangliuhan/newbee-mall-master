@@ -106,38 +106,24 @@ public class GoodsController {
         return "mall/detail";
     }
     
-  //update
-//    @RequestMapping(value = "/answers",method = RequestMethod.POST)
-//    @ResponseBody
-<<<<<<< HEAD
-//  	public Answer update (@RequestBody Map<String,Object> answerCon) {
-//  		return ResultGenerator.genFailResult(newBeeMallGoodsService.updateAnswerById(answerCon));
-//  }  
-    
-//    //limit
-    @RequestMapping(value = "/answers/list", method = RequestMethod.GET)
-    @ResponseBody
-    public Result list(@RequestParam Map<String, Object> Answerparams) {//Answerparams是（page，limit）
-        if (ObjectUtils.isEmpty(Answerparams.get("page")) || ObjectUtils.isEmpty(Answerparams.get("limit"))) {
-            return ResultGenerator.genFailResult("参数异常！");
-        }//postman中传入值应该是page和limit
-        PageQueryUtil AnswerpageUtil = new PageQueryUtil(Answerparams);//插入分页操作（page*（limit-1）
-=======
-//  	public long update (@RequestBody Map<String,Object> answerCon) {
-//  		return newBeeMallGoodsService.updateAnswerById(answerCon);
-//  }  
-    
-//    //limit
-    @RequestMapping(value = "/answers", method = RequestMethod.GET)
-    @ResponseBody
-    public Result list(@RequestParam Map<String, Object> Answerparams) {
-        if (ObjectUtils.isEmpty(Answerparams.get("answerpage")) || ObjectUtils.isEmpty(Answerparams.get("answerlimit"))) {
-            return ResultGenerator.genFailResult("参数异常！");
-        }
-        PageQueryUtil AnswerpageUtil = new PageQueryUtil(Answerparams);
->>>>>>> e42509cef6e2aaafa767dade3f0b7c6819997d56
-        return ResultGenerator.genSuccessResult(newBeeMallGoodsService.getNewBeeMallAnswerPage(AnswerpageUtil));
-    }
+    //update
+//  @RequestMapping(value = "/answers",method = RequestMethod.POST)
+//  @ResponseBody
+//	public Answer update (@RequestBody Map<String,Object> answerCon) {
+//		return ResultGenerator.genFailResult(newBeeMallGoodsService.updateAnswerById(answerCon));
+//}  
+  
+//  //limit
+  @RequestMapping(value = "/answers/list", method = RequestMethod.GET)
+  @ResponseBody
+  public Result list(@RequestParam Map<String, Object> Answerparams) {//Answerparams是（page，limit）
+      if (ObjectUtils.isEmpty(Answerparams.get("page")) || ObjectUtils.isEmpty(Answerparams.get("limit"))) {
+          return ResultGenerator.genFailResult("参数异常！");
+      }//postman中传入值应该是page和limit
+      PageQueryUtil AnswerpageUtil = new PageQueryUtil(Answerparams);//插入分页操作（page*（limit-1）
+      return ResultGenerator.genSuccessResult(newBeeMallGoodsService.getNewBeeMallAnswerPage(AnswerpageUtil));
+  }
+
 
     
 }

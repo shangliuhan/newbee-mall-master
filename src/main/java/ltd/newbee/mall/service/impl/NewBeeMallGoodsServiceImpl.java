@@ -144,7 +144,6 @@ public class NewBeeMallGoodsServiceImpl<Int> implements NewBeeMallGoodsService {
     }
 
 //  json删除的列表并返回组值
-<<<<<<< HEAD
 //  @Override
 //	public Result updateAnswerById(Map<String, Object> answerCon) {
 //	  	return goodsMapper.updateAnswerById(answerCon);
@@ -158,20 +157,6 @@ public class NewBeeMallGoodsServiceImpl<Int> implements NewBeeMallGoodsService {
         PageResult pageResult = new PageResult(newBeeMallAnswers, total, pageUtil.getLimit(), pageUtil.getPage());
         return pageResult;
     }
-=======
-  @Override
-	public long updateAnswerById(Map<String, Object> answerCon) {
-	  	return goodsMapper.updateAnswerById(answerCon);
-	}
-  
-//  @Override
-//  public PageResult getNewBeeMallAnswerPage(PageQueryUtil AnswerpageUtil) {
-//      List<NewBeeMallAnswer> newBeeMallAnswer = ((NewBeeMallGoodsMapper) newBeeMallAnswer).findNewBeeMallAnswerList(AnswerpageUtil);
-//      int total = ((NewBeeMallGoodsMapper)newBeeMallAnswer).getTotalNewBeeMallAnswer(AnswerpageUtil);
-//      PageResult AnswerpageResult = new PageResult(newBeeMallAnswer, total, AnswerpageUtil.getLimit(), AnswerpageUtil.getPage());
-//      return AnswerpageResult;
-//  }
->>>>>>> e42509cef6e2aaafa767dade3f0b7c6819997d56
 
     
 }
