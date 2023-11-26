@@ -389,19 +389,23 @@
     where goods_id = #{goodsId,jdbcType=BIGINT}
   </update>
   
- <delete id="deleteAnswerById" parameterType="long" >
-	
-	DELETE  answers, questions
-    FROM answers JOIN questions 
-    ON answers.answer_id = questions.id
-	WHERE answer_id  IN
-	<foreach item="answerId" collection="answerId" open="(" separator="," close=")">
-        #{answerId,jdbcType=BIGINT}
+  
+  
+  <select id="findNewBeeMallAnswerList" parameterType="ltd.newbee.mall.util.PageQueryUtil" resultType="ltd.newbee.mall.entity.Answer">
+        SELECT answer_id, question_id, content 
+        FROM answers 
+    	JOIN questions ON answers.answer_id = questions.id          
+        LIMIT #{page}, #{limit}
         
-    </foreach>
- 
+    
+    </select>
+  
+   <select id="getTotalNewBeeMallAnswers" parameterType="Map" resultType="int">
+	   
+	  
+    SELECT COUNT(*) answers
+    </select>
 
- 	    </delete>
  	    
 </mapper>
 

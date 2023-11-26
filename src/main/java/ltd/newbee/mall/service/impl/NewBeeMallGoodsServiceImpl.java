@@ -11,6 +11,7 @@ package ltd.newbee.mall.service.impl;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,10 +23,12 @@ import ltd.newbee.mall.common.ServiceResultEnum;
 import ltd.newbee.mall.controller.vo.NewBeeMallSearchGoodsVO;
 import ltd.newbee.mall.dao.GoodsCategoryMapper;
 import ltd.newbee.mall.dao.NewBeeMallGoodsMapper;
+import ltd.newbee.mall.dao.NewBeeMallOrderMapper;
 import ltd.newbee.mall.entity.Answer;
 
 import ltd.newbee.mall.entity.GoodsCategory;
 import ltd.newbee.mall.entity.NewBeeMallGoods;
+import ltd.newbee.mall.entity.NewBeeMallOrder;
 import ltd.newbee.mall.service.NewBeeMallGoodsService;
 import ltd.newbee.mall.util.BeanUtil;
 import ltd.newbee.mall.util.NewBeeMallUtils;
@@ -39,6 +42,7 @@ public class NewBeeMallGoodsServiceImpl<Int> implements NewBeeMallGoodsService {
     private NewBeeMallGoodsMapper goodsMapper;
     @Autowired
     private GoodsCategoryMapper goodsCategoryMapper;
+    
 
     @Override
     public PageResult getNewBeeMallGoodsPage(PageQueryUtil pageUtil) {
@@ -138,13 +142,21 @@ public class NewBeeMallGoodsServiceImpl<Int> implements NewBeeMallGoodsService {
         PageResult pageResult = new PageResult(newBeeMallSearchGoodsVOS, total, pageUtil.getLimit(), pageUtil.getPage());
         return pageResult;
     }
-    
+
 //  json删除的列表并返回组值
-  @Override
-	public int deleteAnswerById(List<Long> answerId) {
-  	int result = goodsMapper.deleteAnswerById(answerId);//goodsMapper.delete代表的是sql值
-  	return result;
-	}
+//  @Override
+//	public Result updateAnswerById(Map<String, Object> answerCon) {
+//	  	return goodsMapper.updateAnswerById(answerCon);
+//	}
+  
+    //limit
+    @Override
+    public PageResult getNewBeeMallAnswerPage(PageQueryUtil pageUtil) {
+        List<NewBeeMallOrder> newBeeMallAnswers = goodsMapper.findNewBeeMallAnswerList(pageUtil);
+        int total = goodsMapper.getTotalNewBeeMallAnswers(pageUtil);
+        PageResult pageResult = new PageResult(newBeeMallAnswers, total, pageUtil.getLimit(), pageUtil.getPage());
+        return pageResult;
+    }
 
     
 }

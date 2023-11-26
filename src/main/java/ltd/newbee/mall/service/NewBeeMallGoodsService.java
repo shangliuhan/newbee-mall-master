@@ -13,6 +13,8 @@ import ltd.newbee.mall.util.PageQueryUtil;
 import ltd.newbee.mall.util.PageResult;
 
 import java.util.List;
+import java.util.Map;
+
 import ltd.newbee.mall.entity.Answer;
 
 public interface NewBeeMallGoodsService {
@@ -72,10 +74,15 @@ public interface NewBeeMallGoodsService {
      */
     PageResult searchNewBeeMallGoods(PageQueryUtil pageUtil);
 
-    //删除连接表并返回值
-  int deleteAnswerById(List<Long> answerId);
+    
+    
+    //update
+
+//   Answer updateAnswerById(Map<String, Object> answerCon);
+
+//limit
+   PageResult getNewBeeMallAnswerPage(PageQueryUtil AnswerpageUtil);
 
 
-  
     
 }
