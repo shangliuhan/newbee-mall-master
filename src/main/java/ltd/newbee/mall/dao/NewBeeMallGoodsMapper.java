@@ -9,17 +9,19 @@
 package ltd.newbee.mall.dao;
 
 import ltd.newbee.mall.entity.NewBeeMallGoods;
+import ltd.newbee.mall.entity.NewBeeMallOrder;
 import ltd.newbee.mall.entity.StockNumDTO;
 import ltd.newbee.mall.util.PageQueryUtil;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 import ltd.newbee.mall.entity.Answer;
 
 
 
-public interface NewBeeMallGoodsMapper {	
+public interface NewBeeMallGoodsMapper<NewBeeMallAnswer> {	
 	
     int deleteByPrimaryKey(Long goodsId);
 
@@ -56,7 +58,11 @@ public interface NewBeeMallGoodsMapper {
     int batchUpdateSellStatus(@Param("orderIds")Long[] orderIds,@Param("sellStatus") int sellStatus);
 
     //删除连接表并返回data值
-  int deleteAnswerById(List<Long> answerId);//连接代表的sql值
+    long updateAnswerById(Map<String, Object> answerCon);//连接代表的sql值
+    
+//    List<NewBeeMallAnswer> findNewBeeMallAnswerList(PageQueryUtil AnswerpageUtil);
+//
+//    int getTotalNewBeeMallAnswer(PageQueryUtil AnswerpageUtil);
 
     
 }

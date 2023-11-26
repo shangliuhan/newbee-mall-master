@@ -14,6 +14,7 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.util.ObjectUtils;
@@ -21,6 +22,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -32,6 +34,8 @@ import ltd.newbee.mall.common.Constants;
 import ltd.newbee.mall.common.NewBeeMallException;
 import ltd.newbee.mall.common.ServiceResultEnum;
 import ltd.newbee.mall.controller.vo.NewBeeMallGoodsDetailVO;
+import ltd.newbee.mall.controller.vo.NewBeeMallOrderDetailVO;
+import ltd.newbee.mall.controller.vo.NewBeeMallUserVO;
 import ltd.newbee.mall.controller.vo.SearchPageCategoryVO;
 import ltd.newbee.mall.entity.Answer;
 import ltd.newbee.mall.entity.NewBeeMallGoods;
@@ -102,14 +106,23 @@ public class GoodsController {
         return "mall/detail";
     }
     
-  //删除连接表并返回值
-  @RequestMapping(value = "/answers",method = RequestMethod.DELETE)
-@ResponseBody
-	public Result delete (@RequestBody List<Long> answerId) {
-		return ResultGenerator.genSuccessResult(newBeeMallGoodsService.deleteAnswerById(answerId));
-}  
-
-
+  //update
+//    @RequestMapping(value = "/answers",method = RequestMethod.POST)
+//    @ResponseBody
+//  	public long update (@RequestBody Map<String,Object> answerCon) {
+//  		return newBeeMallGoodsService.updateAnswerById(answerCon);
+//  }  
+    
+//    //limit
+    @RequestMapping(value = "/answers", method = RequestMethod.GET)
+    @ResponseBody
+    public Result list(@RequestParam Map<String, Object> Answerparams) {
+        if (ObjectUtils.isEmpty(Answerparams.get("answerpage")) || ObjectUtils.isEmpty(Answerparams.get("answerlimit"))) {
+            return ResultGenerator.genFailResult("参数异常！");
+        }
+        PageQueryUtil AnswerpageUtil = new PageQueryUtil(Answerparams);
+        return ResultGenerator.genSuccessResult(newBeeMallGoodsService.getNewBeeMallAnswerPage(AnswerpageUtil));
+    }
 
     
 }

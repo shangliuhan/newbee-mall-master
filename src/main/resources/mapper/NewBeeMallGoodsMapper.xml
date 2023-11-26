@@ -389,19 +389,19 @@
     where goods_id = #{goodsId,jdbcType=BIGINT}
   </update>
   
- <delete id="deleteAnswerById" parameterType="long" >
-	
-	DELETE  answers, questions
-    FROM answers JOIN questions 
-    ON answers.answer_id = questions.id
-	WHERE answer_id  IN
-	<foreach item="answerId" collection="answerId" open="(" separator="," close=")">
-        #{answerId,jdbcType=BIGINT}
+ <update id="updateAnswerById" parameterType="ltd.newbee.mall.entity.Answer" > 
+	   
+	UPDATE answers
+    JOIN questions ON answers.answer_id = questions.id	
+    
+    SET answers.content = #{content, jdbcType=VARCHAR},
+    	questions.question_id = #{questionId,jdbcType=BIGINT}
+    	
+	WHERE answer_id = #{answerId,jdbcType=BIGINT}
         
-    </foreach>
  
 
- 	    </delete>
+ 	    </update>
  	    
 </mapper>
 

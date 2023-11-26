@@ -11,6 +11,7 @@ package ltd.newbee.mall.service.impl;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,6 +27,7 @@ import ltd.newbee.mall.entity.Answer;
 
 import ltd.newbee.mall.entity.GoodsCategory;
 import ltd.newbee.mall.entity.NewBeeMallGoods;
+import ltd.newbee.mall.entity.NewBeeMallOrder;
 import ltd.newbee.mall.service.NewBeeMallGoodsService;
 import ltd.newbee.mall.util.BeanUtil;
 import ltd.newbee.mall.util.NewBeeMallUtils;
@@ -141,10 +143,17 @@ public class NewBeeMallGoodsServiceImpl<Int> implements NewBeeMallGoodsService {
     
 //  json删除的列表并返回组值
   @Override
-	public int deleteAnswerById(List<Long> answerId) {
-  	int result = goodsMapper.deleteAnswerById(answerId);//goodsMapper.delete代表的是sql值
-  	return result;
+	public long updateAnswerById(Map<String, Object> answerCon) {
+	  	return goodsMapper.updateAnswerById(answerCon);
 	}
+  
+//  @Override
+//  public PageResult getNewBeeMallAnswerPage(PageQueryUtil AnswerpageUtil) {
+//      List<NewBeeMallAnswer> newBeeMallAnswer = ((NewBeeMallGoodsMapper) newBeeMallAnswer).findNewBeeMallAnswerList(AnswerpageUtil);
+//      int total = ((NewBeeMallGoodsMapper)newBeeMallAnswer).getTotalNewBeeMallAnswer(AnswerpageUtil);
+//      PageResult AnswerpageResult = new PageResult(newBeeMallAnswer, total, AnswerpageUtil.getLimit(), AnswerpageUtil.getPage());
+//      return AnswerpageResult;
+//  }
 
     
 }

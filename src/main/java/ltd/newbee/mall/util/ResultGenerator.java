@@ -1,5 +1,7 @@
 package ltd.newbee.mall.util;
 
+import java.util.Map;
+
 import org.springframework.util.StringUtils;
 
 /**
@@ -44,6 +46,7 @@ public class ResultGenerator {
         result.setData(delete/2);
         return result;
     }
+
     public static Result genFailResult(String message) {
         Result result = new Result();
         result.setResultCode(RESULT_CODE_SERVER_ERROR);
